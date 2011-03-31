@@ -20,7 +20,7 @@ Author URI: http://garyjones.co.uk/
  * 
  * @since 1.0
  */
-define( 'GABP_DOMAIN', 'genesis_admin_bar_plus' );
+define( 'GABP_DOMAIN', 'genesis-admin-bar-plus' );
 
 /**
  * Ensure plugin is translatable.

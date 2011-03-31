@@ -55,8 +55,11 @@ A plugin author can add support for their own settings page link via the hook me
 
 == Changelog ==
 
+= 1.0.1 =
+* Includes .pot file for translations.
+
 = 1.0 =
-* First public version
+* First public version.
 
 == Upgrade Notice ==
 
