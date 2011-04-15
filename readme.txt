@@ -66,6 +66,9 @@ A plugin author can add support for their own settings page link via the hook me
 
 == Upgrade Notice ==
 
+= 1.0.1 =
+Minor changes - improved external link indicator, translation improvements.
+
 = 1.0 =
 Update from nothingness. You will feel better for it.
 
