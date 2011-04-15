@@ -3,7 +3,7 @@ Contributors: GaryJ
 Donate link: http://code.garyjones.co.uk/donate/
 Tags: admin bar, genesis
 Requires at least: 3.1
-Tested up to: 3.1
+Tested up to: 3.1.1
 Stable tag: 1.0
 
 A conceptual fork of the Genesis Admin Bar Addition plugin, re-written from scratch, adding new features.
@@ -56,7 +56,10 @@ A plugin author can add support for their own settings page link via the hook me
 == Changelog ==
 
 = 1.0.1 =
-* Includes .pot file for translations.
+* Added further checks to see if plugin is active.
+* Replaced inconsistent external link CSS Unicode characters, with base64 encoded image.
+* Included .pot file for translations.
+* Added de_DE translation files (props @deckerweb).
 
 = 1.0 =
 * First public version.
@@ -76,7 +79,7 @@ Here's an example which removes the StudioPress menu (you only need to remove th
  *
  * @param Genesis_Admin_Bar_Plus_Menu $menu
  * @param string $prefix
- * @param string $genesis 
+ * @param string $genesis
  */
 function child_gabp_menu_items( $menu, $prefix, $genesis ) {
 	$garyjones = $prefix . 'gary-jones';
