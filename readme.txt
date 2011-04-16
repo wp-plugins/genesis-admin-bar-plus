@@ -4,7 +4,7 @@ Donate link: http://code.garyjones.co.uk/donate/
 Tags: admin bar, genesis
 Requires at least: 3.1
 Tested up to: 3.1.1
-Stable tag: 1.1
+Stable tag: 1.1.1
 
 A conceptual fork of the Genesis Admin Bar Addition plugin, re-written from scratch, adding new features.
 
@@ -57,6 +57,8 @@ A plugin author can add support for their own settings page link. See the *Add C
 
 = 1.1.1 =
 * Added option to enter GABP Debug mode by appending `gabp-debug` as querystring argument.
+* Fixed translation files by renaming them.
+* Added a Codex suggestion, to check for translation files in `wp-content/languages/` first.
 
 = 1.1 =
 * Improved menu position - now each sub menu can start numbering items from 0, as child menu item will automatically be given a minimum position value of its parent.

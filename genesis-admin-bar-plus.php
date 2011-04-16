@@ -7,7 +7,7 @@
  */
 /*
 Plugin Name: Genesis Admin Bar Plus
-Version: 1.1
+Version: 1.1.1
 Plugin URI: http://code.garyjones.co.uk/plugins/genesis-admin-bar-plus/
 Description: The plugin adds resources links related the Genesis Framework to the admin bar. It is a complete rewrite, effectively forked from <a href="http://profiles.wordpress.org/users/DeFries/">DeFries</a>' <a href="http://wordpress.org/extend/plugins/genesis-admin-bar-addition/">Genesis Admin Bar Addition</a>. See the readme for how to add specific support boards and other items to the menu.
 Author: Gary Jones
@@ -36,7 +36,8 @@ define( 'GABP_DOMAIN', 'genesis-admin-bar-plus' );
  *
  * @since 1.0
  */
-load_plugin_textdomain( GABP_DOMAIN, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+if( ! load_plugin_textdomain( GABP_DOMAIN, '/wp-content/languages/' ) )
+	load_plugin_textdomain( GABP_DOMAIN, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
 add_action( 'init', 'genesis_admin_bar_plus' );
 /**
