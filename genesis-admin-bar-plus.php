@@ -7,13 +7,22 @@
  */
 /*
 Plugin Name: Genesis Admin Bar Plus
-Version: 1.0.1
+Version: 1.1
 Plugin URI: http://code.garyjones.co.uk/plugins/genesis-admin-bar-plus/
 Description: The plugin adds resources links related the Genesis Framework to the admin bar. It is a complete rewrite, effectively forked from <a href="http://profiles.wordpress.org/users/DeFries/">DeFries</a>' <a href="http://wordpress.org/extend/plugins/genesis-admin-bar-addition/">Genesis Admin Bar Addition</a>. See the readme for how to add specific support boards and other items to the menu.
 Author: Gary Jones
 Author URI: http://garyjones.co.uk/
 */
 
+/**
+ * Uncomment to activate debug mode for this plugin.
+ *
+ * Currently all this does is add the calculated (given child position + parent
+ * position) menu position to the visible menu item.
+ *
+ * @since 1.1
+ */
+//define ( 'GABP_DEBUG', true );
 
 /**
  * The translation gettext domain for the plugin.
@@ -37,7 +46,9 @@ add_action( 'init', 'genesis_admin_bar_plus' );
  * @uses Genesis_Admin_Bar_Plus Main plugin class.
  */
 function genesis_admin_bar_plus() {
+
 	$genesis_admin_bar_plus = new Genesis_Admin_Bar_Plus;
+
 }
 
 /**
@@ -59,6 +70,11 @@ class Genesis_Admin_Bar_Plus {
 	 * @var Genesis_Admin_Bar_Plus
 	 */
 	var $menu;
+
+	/**
+	 * @var Array Menu Items collection once finally pulled from Genesis_Admin_Bar_Plus
+	 */
+	var $menu_items = array();
 
 	/**#@+
 	 * Create parent menu item references.
@@ -95,6 +111,7 @@ class Genesis_Admin_Bar_Plus {
 		add_action( 'admin_head', array( &$this, 'style' ) );
 		add_action( 'admin_bar_menu', array( &$this, 'set_default_menu_items' ), 95 );
 		add_action( 'admin_bar_menu', array( &$this, 'add_menus' ), 96 );
+
 	}
 
 	/**
@@ -109,13 +126,14 @@ class Genesis_Admin_Bar_Plus {
 	 * @since 1.0
 	 */
 	function set_default_menu_items() {
+
 		$menu = $this->menu;
 
 		// Add top-level Genesis item
 		$menu->add_item( 'genesis', array(
 			'title'    => __( 'Genesis', GABP_DOMAIN ),
 			'href'     => admin_url( '' ),
-			'position' => 10,
+			'position' => 0,
 			'meta'     => array( 'class' => 'icon-genesis', 'target' => '' )
 		) );
 
@@ -124,22 +142,22 @@ class Genesis_Admin_Bar_Plus {
 			'parent'   => $this->genesis,
 			'title'    => __( 'Genesis Support', GABP_DOMAIN ),
 			'href'     => 'http://www.studiopress.com/support',
-			'position' => 100
+			'position' => 10
 		) );
 		$menu->add_item( 'dev', array(
 			'parent'   => $this->genesis,
 			'title'    => __( 'Genesis Codex', GABP_DOMAIN ),
 			'href'     => 'http://dev.studiopress.com/',
-			'position' => 200
+			'position' => 20
 		) );
 		$menu->add_item( 'studiopress', array(
 			'parent'   => $this->genesis,
 			'title'    => __( 'StudioPress', GABP_DOMAIN ),
 			'href'     => 'http://www.studiopress.com/',
-			'position' => 300
+			'position' => 30
 		) );
 
-		// Add Support submenu items - position >= 101
+		// Add Support submenu items
 		$boards = $this->get_support_boards();
 		$i = 0;
 		foreach( $boards as $key => $board ) {
@@ -148,89 +166,89 @@ class Genesis_Admin_Bar_Plus {
 					'parent'   => $this->support,
 					'title'    => $board[0],
 					'href'     => 'http://www.studiopress.com/support/forumdisplay.php?f=' . $this->get_support_board( $key ),
-					'position' => 130 + 2 * $i
+					'position' => 10 + 2 * $i
 				) );
 			}
 			$i++;
 		}
 
-		// Add Codex / Dev submenu items - position >= 201
+		// Add Codex / Dev submenu items
 		$menu->add_item( 'sitemap', array(
 			'parent'   => $this->dev,
 			'title'    => __( 'Dev.StudioPress Sitemap', GABP_DOMAIN ),
 			'href'     => 'http://dev.studiopress.com/sitemap',
-			'position' => 210
+			'position' => 10
 		) );
 		$menu->add_item( 'hooks', array(
 			'parent'   => $this->dev,
 			'title'    => __( 'Action Hooks Reference', GABP_DOMAIN ),
 			'href'     => 'http://dev.studiopress.com/hook-reference',
-			'position' => 220
+			'position' => 20
 		) );
 		$menu->add_item( 'filters', array(
 			'parent'   => $this->dev,
 			'title'    => __( 'Filter Hooks Reference', GABP_DOMAIN ),
 			'href'     => 'http://dev.studiopress.com/filter-reference',
-			'position' => 230
+			'position' => 30
 		) );
 		$menu->add_item( 'functions', array(
 			'parent'   => $this->dev,
 			'title'    => __( 'Functions Reference', GABP_DOMAIN ),
 			'href'     => 'http://dev.studiopress.com/function-reference',
-			'position' => 240
+			'position' => 40
 		) );
 		$menu->add_item( 'shortcodes', array(
 			'parent'   => $this->dev,
 			'title'    => __( 'Shortcodes Reference', GABP_DOMAIN ),
 			'href'     => 'http://dev.studiopress.com/shortcode-reference',
-			'position' => 250
+			'position' => 50
 		) );
 		$menu->add_item( 'visual', array(
 			'parent'   => $this->dev,
 			'title'    => __( 'Visual Markup Guide', GABP_DOMAIN ),
 			'href'     => 'http://dev.studiopress.com/visual-markup-guide',
-			'position' => 260
+			'position' => 60
 		) );
 
-		// Add StudioPress submenu items - position >=301
+		// Add StudioPress submenu items
 		$menu->add_item( 'themes', array(
 			'parent'   => $this->studiopress,
 			'title'    => __( 'Themes', GABP_DOMAIN ),
 			'href'     => 'http://www.studiopress.com/themes',
-			'position' => 310
+			'position' => 10
 		) );
 		$menu->add_item( 'plugins', array(
 			'parent'   => $this->studiopress,
 			'title'    => __( 'Plugins', GABP_DOMAIN ),
 			'href'     => 'http://www.studiopress.com/plugins',
-			'position' => 320
+			'position' => 20
 		) );
 		$menu->add_item( 'faqs', array(
 			'parent'   => $this->studiopress,
 			'title'    => __( '<abbr title="Frequently asked question">FAQ</abbr>s', GABP_DOMAIN ),
 			'href'     => '#',
-			'position' => 330,
+			'position' => 30,
 			'meta'     => array( 'target' => '' )
 		) );
 
-		// Add FAQs sub-submenu items - position >= 330
+		// Add FAQs sub-submenu items
 		$menu->add_item( 'general-faqs', array(
 			'parent'   => $this->faqs,
 			'title'    => __( 'General <abbr>FAQ</abbr>s', GABP_DOMAIN ),
 			'href'     => 'http://www.studiopress.com/general-faqs',
-			'position' => 332
+			'position' => 10
 		) );
 		$menu->add_item( 'support-faqs', array(
 			'parent'   => $this->faqs,
 			'title'    => __( 'Support <abbr>FAQ</abbr>s', GABP_DOMAIN ),
 			'href'     => 'http://www.studiopress.com/support-faqs',
-			'position' => 334
+			'position' => 20
 		) );
 		$menu->add_item( 'theme-faqs', array(
 			'parent'   => $this->faqs,
 			'title'    => __( 'Theme <abbr>FAQ</abbr>s', GABP_DOMAIN ),
 			'href'     => 'http://www.studiopress.com/theme-faqs',
-			'position' => 336
+			'position' => 30
 		) );
 
 		// Add Settings menu only if Genesis or a child theme is active
@@ -241,23 +259,23 @@ class Genesis_Admin_Bar_Plus {
 				'parent'   => $this->genesis,
 				'title'    => __( 'Settings', 'genesis' ),
 				'href'     => is_admin() ? menu_page_url( 'genesis' ) : admin_url( add_query_arg( 'page', 'genesis', 'admin.php' ) ),
-				'position' => 400,
+				'position' => 40,
 				'meta'     => array( 'target' => '' )
 			) );
 
-			// Add Settings submenu items - position > 401
+			// Add Settings submenu items
 			$menu->add_item( 'theme-settings', array(
 				'parent'   => $this->settings,
 				'title'    => __( 'Theme Settings', 'genesis' ),
 				'href'     => is_admin() ? menu_page_url( 'genesis' ) : admin_url( add_query_arg( 'page', 'genesis', 'admin.php' ) ),
-				'position' => 410,
+				'position' => 10,
 				'meta'     => array( 'target' => '' )
 			) );
 			$menu->add_item( 'seo-settings', array(
 				'parent'   => $this->settings,
 				'title'    => __( 'SEO Settings', 'genesis' ),
 				'href'     => is_admin() ? menu_page_url( 'seo-settings' ) : admin_url( add_query_arg( 'page', 'seo-settings', 'admin.php' ) ),
-				'position' => 420,
+				'position' => 20,
 				'meta'     => array( 'target' => '' )
 			) );
 
@@ -267,7 +285,7 @@ class Genesis_Admin_Bar_Plus {
 					'parent'   => $this->settings,
 					'title'    => __( 'Design Settings', PROSE_DOMAIN ),
 					'href'     => is_admin() ? menu_page_url( 'design-settings' ) : admin_url( add_query_arg( 'page', 'design-settings', 'admin.php' ) ),
-					'position' => 430,
+					'position' => 30,
 					'meta'     => array( 'target' => '' )
 				) );
 			}
@@ -278,7 +296,7 @@ class Genesis_Admin_Bar_Plus {
 					'parent'   => $this->settings,
 					'title'    => __( 'GenesisConnect', GABP_DOMAIN ),
 					'href'     => is_admin() ? menu_page_url( 'connect-settings' ) : admin_url( add_query_arg( 'page', 'connect-settings', 'admin.php' ) ),
-					'position' => 440,
+					'position' => 40,
 					'meta'     => array( 'target' => '' )
 				) );
 			}
@@ -289,7 +307,7 @@ class Genesis_Admin_Bar_Plus {
 					'parent'   => $this->settings,
 					'title'    => __( 'Simple Edits', GABP_DOMAIN ),
 					'href'     => is_admin() ? menu_page_url( 'genesis-simple-edits' ) : admin_url( add_query_arg( 'page', 'genesis-simple-edits', 'admin.php' ) ),
-					'position' => 450,
+					'position' => 50,
 					'meta'     => array( 'target' => '' )
 				) );
 			}
@@ -300,7 +318,7 @@ class Genesis_Admin_Bar_Plus {
 					'parent'   => $this->settings,
 					'title'    => __( 'Simple Hooks', GABP_DOMAIN ),
 					'href'     => is_admin() ? menu_page_url( 'simplehooks' ) : admin_url( add_query_arg( 'page', 'simplehooks', 'admin.php' ) ),
-					'position' => 460,
+					'position' => 60,
 					'meta'     => array( 'target' => '' )
 				) );
 			}
@@ -313,7 +331,7 @@ class Genesis_Admin_Bar_Plus {
 					'parent'   => $this->settings,
 					'title'    => __( 'Simple Sidebars', GABP_DOMAIN ),
 					'href'     => is_admin() ? menu_page_url( 'simple-sidebars' ) : admin_url( add_query_arg( 'page', 'simple-sidebars', 'admin.php' ) ),
-					'position' => 470,
+					'position' => 70,
 					'meta'     => array( 'target' => '' )
 				) );
 			}
@@ -324,49 +342,43 @@ class Genesis_Admin_Bar_Plus {
 					'parent'   => $this->settings,
 					'title'    => __( 'Simple URLs', GABP_DOMAIN ),
 					'href'     => admin_url( add_query_arg( 'post_type', 'surl', 'edit.php' ) ),
-					'position' => 480,
+					'position' => 80,
 					'meta'     => array( 'target' => '' )
 				) );
 			}
 
 			do_action( 'gabp_menu_items', $menu, $this->prefix, $this->genesis, $this->support, $this->dev, $this->studiopress, $this->settings, $this->faqs );
 		}
+
 	}
 
 	/**
-	 * Return array of menu items to be added.
+	 * Ensure that child item has a minimum position equal to that of its parent. Private
 	 *
-	 * The menu items are filterable via the 'genesis_admin_bar_plus_menu_items'
-	 * filter.
+	 * @since 1.1
 	 *
-	 * @since 1.0
-	 * @uses Genesis_Admin_Bar_Plus::sort() Helper function for uasort()
-	 * @uses Genesis_Admin_Bar_Plus_Menu::get_items() Return default menu items
-	 *
-	 * @return array Orderd array of menu items
+	 * @param array $menu_items
+	 * @return array
 	 */
-	function get_menu_items() {
+	function _pre_sort() {
 
-		// Allow menu items to be filtered, but pass in parent menu item IDs
-		$menu_items = (array) apply_filters( 'genesis_admin_bar_plus_menu_items', $this->menu->get_items(), $this->prefix, $this->genesis, $this->support, $this->dev, $this->studiopress, $this->settings );
-
-		// Final sort by position
-		uasort( $menu_items, array( &$this, 'sort' ) );
-
-		return $menu_items;
-	}
-
-	function validate_child_item_position() {
+		foreach ( $this->menu_items as $id => $menu_item ) {
+			if ( isset( $menu_item['parent'] ) ) {
+				$parent = $this->menu->get_item( str_replace($this->prefix, '', $menu_item['parent'] ) );
+				$this->menu_items[$id]['position'] += $parent['position'];
+			}
+		}
 
 	}
 
 	/**
-	 * Helper function to sort the menu items by position.
+	 * Helper function to sort the menu items by position. Private.
 	 *
 	 * @since 1.0
 	 * @todo Try and find some way of sorting children after parent ID first
 	 */
-	function sort( $a, $b ) {
+	function _sort( $a, $b ) {
+
 		$ap = (int) $a['position'];
 		$bp = (int) $b['position'];
 
@@ -374,22 +386,37 @@ class Genesis_Admin_Bar_Plus {
             return 0;
         }
         return ( $ap > $bp ) ? +1 : -1;
+
 	}
 
 	/**
 	 * Add the menus to the admin bar.
 	 *
+	 * The menu items are filterable via the 'genesis_admin_bar_plus_menu_items'
+	 * filter.
+	 *
 	 * @since 1.0
+	 * @uses Genesis_Admin_Bar_Plus::sort() Helper function for uasort()
+	 * @uses Genesis_Admin_Bar_Plus_Menu::get_items() Return default menu items
+	 * @uses validate_child_item_position() Pre-sort menu items
 	 *
 	 * @global WP_Admin_Bar $wp_admin_bar
 	 */
 	function add_menus() {
+
 		global $wp_admin_bar;
 
-		$menu_items = $this->get_menu_items();
+		// Allow menu items to be filtered, but pass in parent menu item IDs
+		$this->menu_items = (array) apply_filters( 'genesis_admin_bar_plus_menu_items', $this->menu->get_items(), $this->prefix, $this->genesis, $this->support, $this->dev, $this->studiopress, $this->settings );
+
+		// Ensure that child item has a minimum position equal to that of its parent.
+		$this->_pre_sort();
+
+		// Final sort by position
+		uasort( $this->menu_items, array( &$this, '_sort' ) );
 
 		// Loop through menu items
-		foreach ( $menu_items as $id => $menu_item ) {
+		foreach ( $this->menu_items as $id => $menu_item ) {
 
 			// Add in item ID
 			$menu_item['id'] = $this->prefix . $id;
@@ -398,9 +425,16 @@ class Genesis_Admin_Bar_Plus {
 			if ( ! isset( $menu_item['meta']['target'] ) )
 				$menu_item['meta']['target'] = '_blank';
 
+			// Each menu item position is calculated by the given child item position + parent item position.
+			// This ensures that when sorted, the parent item will always be before the child item, so
+			// the child item has something to be a child of, when added.
+			if ( $this->is_debug() )
+				$menu_item['title'] .= ' <small title="menu-position" class="gabp-debug">(' . $menu_item['position'] . ')</small>';
+
 			// Add item
 			$wp_admin_bar->add_menu( $menu_item );
 		}
+
 	}
 
 	/**
@@ -416,6 +450,7 @@ class Genesis_Admin_Bar_Plus {
 	 * @return array Array of support boards.
 	 */
 	function get_support_boards() {
+
 		$boards = array(
 			'genesis'            => array( __( 'Genesis Framework', GABP_DOMAIN ), 75 ),
 			'agency'             => array( __( 'Agency Child Theme', GABP_DOMAIN ), 119 ),
@@ -458,6 +493,7 @@ class Genesis_Admin_Bar_Plus {
 			'genesisconnect'     => array( __( 'GenesisConnect', GABP_DOMAIN ), 155 )
 		);
 		return (array) apply_filters( 'gabp_support_boards', $boards );
+
 	}
 
 	/**
@@ -470,10 +506,12 @@ class Genesis_Admin_Bar_Plus {
 	 * @return integer|boolean Support board ID, or false if board not found.
 	 */
 	function get_support_board( $name ) {
+
 		$boards = $this->get_support_boards();
 		if ( isset( $boards[$name] ) )
 			return $boards[$name][1];
 		return false;
+
 	}
 
 	/**
@@ -488,6 +526,7 @@ class Genesis_Admin_Bar_Plus {
 	 * @since 1.0
 	 */
 	function style() {
+
 		if ( ! is_admin_bar_showing() )
 			return;
 
@@ -517,7 +556,26 @@ class Genesis_Admin_Bar_Plus {
 			<?php } ?>
 		</style>
 		<?php
+
 	}
+
+	/**
+	 * Returns if debug mode is activated for this plugin.
+	 *
+	 * Can be activated by uncommenting the line near the top of this file.
+	 *
+	 * @since 1.1
+	 *
+	 * @return boolean
+	 */
+	function is_debug() {
+
+		if (  defined( 'GABP_DEBUG') && GABP_DEBUG )
+			return true;
+		return false;
+
+	}
+
 }
 
 /**
@@ -543,7 +601,25 @@ class Genesis_Admin_Bar_Plus_Menu {
 	 * @param array $args Menu item arguments
 	 */
 	function add_item( $id, $args ) {
+
 		$this->menu_items[$id] = $args;
+
+	}
+
+	/**
+	 * Retrieve single menu item.
+	 *
+	 * @since 1.1
+	 *
+	 * @param string $id Menu item identifier
+	 * @return array Menu item arguments
+	 */
+	function get_item( $id ) {
+
+		if( isset( $this->menu_items[$id] ) )
+			return $this->menu_items[$id];
+		return false;
+
 	}
 
 	/**
@@ -555,7 +631,9 @@ class Genesis_Admin_Bar_Plus_Menu {
 	 * @param array $args Menu item arguments
 	 */
 	function edit_item( $id, $args ) {
+
 		$this->menu_items[$id] = wp_parse_args( $args, $this->menu_items[$id] );
+
 	}
 
 	/**
@@ -566,8 +644,10 @@ class Genesis_Admin_Bar_Plus_Menu {
 	 * @param string $id Menu item identifier
 	 */
 	function remove_item( $id ) {
+
 		if( isset( $this->menu_items[$id] ) )
 			unset( $this->menu_items[$id] );
+
 	}
 
 	/**
@@ -578,6 +658,9 @@ class Genesis_Admin_Bar_Plus_Menu {
 	 * @return array All menu items
 	 */
 	function get_items() {
+
 		return $this->menu_items;
+
 	}
+
 }

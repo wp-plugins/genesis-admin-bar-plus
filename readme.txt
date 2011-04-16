@@ -4,7 +4,7 @@ Donate link: http://code.garyjones.co.uk/donate/
 Tags: admin bar, genesis
 Requires at least: 3.1
 Tested up to: 3.1.1
-Stable tag: 1.0.1
+Stable tag: 1.1
 
 A conceptual fork of the Genesis Admin Bar Addition plugin, re-written from scratch, adding new features.
 
@@ -43,7 +43,7 @@ You can also add a reference to another board via the `gabp_support_boards` filt
 * Simple Sidebars
 * Simple URLs
 
-A plugin author can add support for their own settings page link via the hook mentioned in the first question above.
+A plugin author can add support for their own settings page link. See the *Add Custom Items* section.
 
 == Screenshots ==
 
@@ -55,16 +55,23 @@ A plugin author can add support for their own settings page link via the hook me
 
 == Changelog ==
 
+= 1.1 =
+* Improved menu position - now each sub menu can start numbering items from 0, as child menu item will automatically be given a minimum position value of its parent.
+* Added debug mode (uncomment line at top of plugin file). Can be used to show calculated menu position.
+
 = 1.0.1 =
 * Added further checks to see if plugin is active.
-* Replaced inconsistent external link CSS Unicode characters, with base64 encoded image.
+* Improved inconsistent external link icon by replacing CSS Unicode characters with base64 encoded image.
 * Included .pot file for translations.
-* Added de_DE translation files (props @deckerweb).
+* Added de_DE translation files (props [deckerweb.de](http://deckerweb.de/material/sprachdateien/genesis-plugins/)).
 
 = 1.0 =
 * First public version.
 
 == Upgrade Notice ==
+
+= 1.1 =
+Improved menu position calculation, added debug mode.
 
 = 1.0.1 =
 Minor changes - improved external link indicator, translation improvements.
@@ -95,7 +102,7 @@ function child_gabp_menu_items( $menu, $prefix, $genesis ) {
 		'parent'   => $genesis,
 		'title'    => 'Gary Jones',
 		'href'     => 'http://garyjones.co.uk/',
-		'position' => 300
+		'position' => 30
 	) );
 
 	// Add Gary Jones submenu items
@@ -103,18 +110,19 @@ function child_gabp_menu_items( $menu, $prefix, $genesis ) {
 		'parent'   => $garyjones,
 		'title'    => 'Code Gallery',
 		'href'     => 'http://code.garyjones.co.uk/',
-		'position' => 310
+		'position' => 10
 	) );
-	$menu->add_item( 'gamajo-tech', array(
+	$menu->add_item( 'garyj', array(
 		'parent'   => $garyjones,
-		'title'    => 'Gamajo Tech',
-		'href'     => 'http://gamajo.com/',
-		'position' => 320
+		'title'    => 'GaryJ',
+		'href'     => 'http://twitter.com/GaryJ',
+		'position' => 20
 	) );
 
-	// Amend position of Dev.SP Sitemap menu item
-	$menu->edit_item( 'sitemap', array(
-		'position' => 500
+	// Amend position of Support menu item - child items will move correctly too
+	// as of v1.1
+	$menu->edit_item( 'support', array(
+		'position' => 50
 	) );
 }`
 
