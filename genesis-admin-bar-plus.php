@@ -7,11 +7,12 @@
  */
 /*
 Plugin Name: Genesis Admin Bar Plus
-Version: 1.1.2
+Version: 1.1.3
 Plugin URI: http://code.garyjones.co.uk/plugins/genesis-admin-bar-plus/
 Description: The plugin adds resources links related the Genesis Framework to the admin bar. It is a complete rewrite, effectively forked from <a href="http://profiles.wordpress.org/users/DeFries/">DeFries</a>' <a href="http://wordpress.org/extend/plugins/genesis-admin-bar-addition/">Genesis Admin Bar Addition</a>. See the readme for how to add specific support boards and other items to the menu.
 Author: Gary Jones
 Author URI: http://garyjones.co.uk/
+License: GPLv3
 */
 
 /**
@@ -133,9 +134,9 @@ class Genesis_Admin_Bar_Plus {
 		// Add top-level Genesis item
 		$menu->add_item( 'genesis', array(
 			'title'    => __( 'Genesis', GABP_DOMAIN ),
-			'href'     => admin_url( '' ),
+			'href'     => '',
 			'position' => 0,
-			'meta'     => array( 'class' => 'icon-genesis', 'target' => '' )
+			'meta'     => array( 'class' => 'gabp-icon-genesis gabp-no-link', 'target' => '' )
 		) );
 
 		// Add Genesis menu items
@@ -227,9 +228,9 @@ class Genesis_Admin_Bar_Plus {
 		$menu->add_item( 'faqs', array(
 			'parent'   => $this->studiopress,
 			'title'    => __( '<abbr title="Frequently asked question">FAQ</abbr>s', GABP_DOMAIN ),
-			'href'     => '#',
+			'href'     => '',
 			'position' => 30,
-			'meta'     => array( 'target' => '' )
+			'meta'     => array( 'target' => '', 'class' => 'gabp-no-link' )
 		) );
 
 		// Add FAQs sub-submenu items
@@ -354,21 +355,50 @@ class Genesis_Admin_Bar_Plus {
 	}
 
 	/**
-	 * Ensure that child item has a minimum position equal to that of its parent. Private
+	 * Ensure that child item has a minimum position equal to that of its parent.
+	 * Recursive function. Private.
 	 *
 	 * @since 1.1
 	 *
-	 * @param array $menu_items
+	 * @param string $id Menu item ID
+	 * @param array $menu_items Menu item arguments
 	 * @return array
 	 */
-	function _pre_sort() {
+	function _pre_sort( $id ) {
 
-		foreach ( $this->menu_items as $id => $menu_item ) {
-			if ( isset( $menu_item['parent'] ) ) {
-				$parent = $this->menu->get_item( str_replace($this->prefix, '', $menu_item['parent'] ) );
-				$this->menu_items[$id]['position'] += $parent['position'];
-			}
+		/** Get the menu item arguments */
+		$menu_item = $this->menu_items[$id];
+
+		/** Stop recursion on items already recursed */
+		if ( isset( $menu_item['pre_sorted'] ) )
+			return;
+
+		/** If item has no parent, bail out */
+		if ( ! isset( $menu_item['parent'] ) )
+			return;
+
+		/** Easter Egg - give position of child items as 0, and get random order! */
+		if ( 0 == $menu_item['position'] )
+			$this->menu_items[$id]['position'] = mt_rand( 1, 99 );
+
+		/** Get the parent menu item ID */
+		$parent_id = str_replace( $this->prefix, '', $menu_item['parent'] );
+
+		/** Get the parent menu item arguments */
+		$parent_item = $this->menu_items[$parent_id];
+
+		/** Add recursion flag */
+		$this->menu_items[$id]['pre_sorted'] = true;
+
+		/** If the parent menu item has it's own parent, recurse this function */
+		if ( isset( $parent_item['parent'] ) ) {
+			$this->_pre_sort( $parent_id );
+			/** Get the updated parent menu item arguments */
+			$parent_item = $this->menu_items[$parent_id];
 		}
+
+		/** Add parent item position to child position */
+		$this->menu_items[$id]['position'] = $this->menu_items[$id]['position'] + $parent_item['position'];
 
 	}
 
@@ -411,7 +441,9 @@ class Genesis_Admin_Bar_Plus {
 		$this->menu_items = (array) apply_filters( 'genesis_admin_bar_plus_menu_items', $this->menu->get_items(), $this->prefix, $this->genesis, $this->support, $this->dev, $this->studiopress, $this->settings );
 
 		// Ensure that child item has a minimum position equal to that of its parent.
-		$this->_pre_sort();
+		foreach ( $this->menu_items as $id => $menu_item ) {
+			$this->_pre_sort( $id );
+		}
 
 		// Final sort by position
 		uasort( $this->menu_items, array( &$this, '_sort' ) );
@@ -430,7 +462,7 @@ class Genesis_Admin_Bar_Plus {
 			// This ensures that when sorted, the parent item will always be before the child item, so
 			// the child item has something to be a child of, when added.
 			if ( $this->is_debug() )
-				$menu_item['title'] .= ' <small title="menu-position" class="gabp-debug">(' . $menu_item['position'] . ')</small>';
+				$menu_item['title'] .= ' <small title="' . _e( 'Calculated menu position', GABP_DOMAIN ) . '" class="gabp-debug">(' . $menu_item['position'] . ')</small>';
 
 			// Add item
 			$wp_admin_bar->add_menu( $menu_item );
@@ -545,13 +577,16 @@ class Genesis_Admin_Bar_Plus {
 			#wpadminbar .menupop>a[target=_blank]:after {
 				display: none;
 			}
+			#wpadminbar .gabp-no-link>a {
+				cursor: default;
+			}
 			<?php
 			if ( defined( 'GENESIS_SETTINGS_FIELD' ) ) {
 			?>
-			#wpadminbar .icon-genesis>a {
+			#wpadminbar .gabp-icon-genesis>a {
 				background: url(<?php echo PARENT_URL; ?>/images/genesis.gif) no-repeat 0.85em 50%;
 			}
-			#wpadminbar .icon-genesis>a span {
+			#wpadminbar .gabp-icon-genesis>a span {
 				padding-left: 20px;
 			}
 			<?php } ?>

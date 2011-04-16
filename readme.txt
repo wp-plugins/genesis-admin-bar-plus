@@ -49,11 +49,18 @@ A plugin author can add support for their own settings page link. See the *Add C
 
 1. Support menu expanded, to show 3 optional items added via theme `functions.php` using `add_theme_support()`
 2. Codex menu expanded
-3. StudioPress menu expanded, along with FAQ submenu
-4. Settings menu expanded, showing support for direct link to settings pages of several Genesis-related plugins.
-5. Showing the StudioPress menu item removed, and new custom menu items added.
+3. StudioPress menu expanded, along with FAQ submenu, and with debug mode enabled to show calculated menu positions
+4. Settings menu expanded, showing support for direct link to settings pages of several Genesis-related plugins
+5. Showing the StudioPress menu item removed, Support menu item moved position and new custom menu items added
 
 == Changelog ==
+
+= 1.1.3 =
+* Fixed issue with sub sub menus, affecting FAQ links.
+* Child menu items can now be added before parent items - the calculated positioning will add in the sum of all given ancestor item positions.
+* Fixed confusing interface by styling non-links to use the default cursor.
+* Updated all screenshots - now up to date, and considerably smaller file-size.
+* Added explicit licensing of GPLv3.
 
 = 1.1.2 =
 * Fixed URLs from being echoed to bottom of admin pages.
@@ -71,7 +78,7 @@ A plugin author can add support for their own settings page link. See the *Add C
 * Added further checks to see if plugin is active.
 * Improved inconsistent external link icon by replacing CSS Unicode characters with base64 encoded image.
 * Included .pot file for translations.
-* Added de_DE translation files (props [deckerweb.de](http://deckerweb.de/material/sprachdateien/genesis-plugins/)).
+* Added German translation files (props [deckerweb.de](http://deckerweb.de/material/sprachdateien/genesis-plugins/)).
 
 = 1.0 =
 * First public version.
