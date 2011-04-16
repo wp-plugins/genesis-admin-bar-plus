@@ -570,7 +570,7 @@ class Genesis_Admin_Bar_Plus {
 	 */
 	function is_debug() {
 
-		if (  defined( 'GABP_DEBUG') && GABP_DEBUG )
+		if (  ( defined( 'GABP_DEBUG') && GABP_DEBUG ) || ( isset( $_GET['gabp-debug'] ) ) )
 			return true;
 		return false;
 

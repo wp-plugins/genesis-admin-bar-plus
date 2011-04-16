@@ -55,6 +55,9 @@ A plugin author can add support for their own settings page link. See the *Add C
 
 == Changelog ==
 
+= 1.1.1 =
+* Added option to enter GABP Debug mode by appending `gabp-debug` as querystring argument.
+
 = 1.1 =
 * Improved menu position - now each sub menu can start numbering items from 0, as child menu item will automatically be given a minimum position value of its parent.
 * Added debug mode (uncomment line at top of plugin file). Can be used to show calculated menu position.
@@ -81,7 +84,7 @@ Update from nothingness. You will feel better for it.
 
 == Add Custom Items ==
 
-Here's an example which removes the StudioPress menu (you only need to remove the parent item to remove all of the child items too), moves the Dev.SP Sitemap menu item to the bottom of the submenu and adds some custom menu items in:
+Here's an example which removes the StudioPress menu (you only need to remove the parent item to remove all of the child items too), moves the Support menu item to the bottom of the submenu and adds some custom menu items in:
 
 `add_action( 'gabp_menu_items', 'child_gabp_menu_items', 10, 3 );
 /**
