@@ -36,8 +36,8 @@ define( 'GABP_DOMAIN', 'genesis-admin-bar-plus' );
  *
  * @since 1.0
  */
-if( ! load_plugin_textdomain( GABP_DOMAIN, '/wp-content/languages/' ) )
-	load_plugin_textdomain( GABP_DOMAIN, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+if( ! load_plugin_textdomain( GABP_DOMAIN, false, '/wp-content/languages/' ) )
+	load_plugin_textdomain( GABP_DOMAIN, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
 add_action( 'init', 'genesis_admin_bar_plus' );
 /**
