@@ -7,7 +7,7 @@
  */
 /*
 Plugin Name: Genesis Admin Bar Plus
-Version: 1.0
+Version: 1.0.1
 Plugin URI: http://code.garyjones.co.uk/plugins/genesis-admin-bar-plus/
 Description: The plugin adds resources links related the Genesis Framework to the admin bar. It is a complete rewrite, effectively forked from DeFries' Genesis Admin Bar.
 Author: Gary Jones
