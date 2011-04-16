@@ -7,7 +7,7 @@
  */
 /*
 Plugin Name: Genesis Admin Bar Plus
-Version: 1.1.1
+Version: 1.1.2
 Plugin URI: http://code.garyjones.co.uk/plugins/genesis-admin-bar-plus/
 Description: The plugin adds resources links related the Genesis Framework to the admin bar. It is a complete rewrite, effectively forked from <a href="http://profiles.wordpress.org/users/DeFries/">DeFries</a>' <a href="http://wordpress.org/extend/plugins/genesis-admin-bar-addition/">Genesis Admin Bar Addition</a>. See the readme for how to add specific support boards and other items to the menu.
 Author: Gary Jones
@@ -259,7 +259,7 @@ class Genesis_Admin_Bar_Plus {
 			$menu->add_item( 'settings', array(
 				'parent'   => $this->genesis,
 				'title'    => __( 'Settings', 'genesis' ),
-				'href'     => is_admin() ? menu_page_url( 'genesis' ) : admin_url( add_query_arg( 'page', 'genesis', 'admin.php' ) ),
+				'href'     => is_admin() ? menu_page_url( 'genesis', false ) : admin_url( add_query_arg( 'page', 'genesis', 'admin.php' ) ),
 				'position' => 40,
 				'meta'     => array( 'target' => '' )
 			) );
@@ -268,14 +268,14 @@ class Genesis_Admin_Bar_Plus {
 			$menu->add_item( 'theme-settings', array(
 				'parent'   => $this->settings,
 				'title'    => __( 'Theme Settings', 'genesis' ),
-				'href'     => is_admin() ? menu_page_url( 'genesis' ) : admin_url( add_query_arg( 'page', 'genesis', 'admin.php' ) ),
+				'href'     => is_admin() ? menu_page_url( 'genesis', false ) : admin_url( add_query_arg( 'page', 'genesis', 'admin.php' ) ),
 				'position' => 10,
 				'meta'     => array( 'target' => '' )
 			) );
 			$menu->add_item( 'seo-settings', array(
 				'parent'   => $this->settings,
 				'title'    => __( 'SEO Settings', 'genesis' ),
-				'href'     => is_admin() ? menu_page_url( 'seo-settings' ) : admin_url( add_query_arg( 'page', 'seo-settings', 'admin.php' ) ),
+				'href'     => is_admin() ? menu_page_url( 'seo-settings', false ) : admin_url( add_query_arg( 'page', 'seo-settings', 'admin.php' ) ),
 				'position' => 20,
 				'meta'     => array( 'target' => '' )
 			) );
@@ -285,7 +285,7 @@ class Genesis_Admin_Bar_Plus {
 				$menu->add_item( 'design-settings', array(
 					'parent'   => $this->settings,
 					'title'    => __( 'Design Settings', PROSE_DOMAIN ),
-					'href'     => is_admin() ? menu_page_url( 'design-settings' ) : admin_url( add_query_arg( 'page', 'design-settings', 'admin.php' ) ),
+					'href'     => is_admin() ? menu_page_url( 'design-settings', false ) : admin_url( add_query_arg( 'page', 'design-settings', 'admin.php' ) ),
 					'position' => 30,
 					'meta'     => array( 'target' => '' )
 				) );
@@ -296,7 +296,7 @@ class Genesis_Admin_Bar_Plus {
 				$menu->add_item( 'genesisconnect', array(
 					'parent'   => $this->settings,
 					'title'    => __( 'GenesisConnect', GABP_DOMAIN ),
-					'href'     => is_admin() ? menu_page_url( 'connect-settings' ) : admin_url( add_query_arg( 'page', 'connect-settings', 'admin.php' ) ),
+					'href'     => is_admin() ? menu_page_url( 'connect-settings', false ) : admin_url( add_query_arg( 'page', 'connect-settings', 'admin.php' ) ),
 					'position' => 40,
 					'meta'     => array( 'target' => '' )
 				) );
@@ -307,7 +307,7 @@ class Genesis_Admin_Bar_Plus {
 				$menu->add_item( 'simple-edits', array(
 					'parent'   => $this->settings,
 					'title'    => __( 'Simple Edits', GABP_DOMAIN ),
-					'href'     => is_admin() ? menu_page_url( 'genesis-simple-edits' ) : admin_url( add_query_arg( 'page', 'genesis-simple-edits', 'admin.php' ) ),
+					'href'     => is_admin() ? menu_page_url( 'genesis-simple-edits', false ) : admin_url( add_query_arg( 'page', 'genesis-simple-edits', 'admin.php' ) ),
 					'position' => 50,
 					'meta'     => array( 'target' => '' )
 				) );
@@ -318,7 +318,7 @@ class Genesis_Admin_Bar_Plus {
 				$menu->add_item( 'simple-hooks', array(
 					'parent'   => $this->settings,
 					'title'    => __( 'Simple Hooks', GABP_DOMAIN ),
-					'href'     => is_admin() ? menu_page_url( 'simplehooks' ) : admin_url( add_query_arg( 'page', 'simplehooks', 'admin.php' ) ),
+					'href'     => is_admin() ? menu_page_url( 'simplehooks', false ) : admin_url( add_query_arg( 'page', 'simplehooks', 'admin.php' ) ),
 					'position' => 60,
 					'meta'     => array( 'target' => '' )
 				) );
@@ -331,7 +331,7 @@ class Genesis_Admin_Bar_Plus {
 				$menu->add_item( 'simple-sidebars', array(
 					'parent'   => $this->settings,
 					'title'    => __( 'Simple Sidebars', GABP_DOMAIN ),
-					'href'     => is_admin() ? menu_page_url( 'simple-sidebars' ) : admin_url( add_query_arg( 'page', 'simple-sidebars', 'admin.php' ) ),
+					'href'     => is_admin() ? menu_page_url( 'simple-sidebars', false ) : admin_url( add_query_arg( 'page', 'simple-sidebars', 'admin.php' ) ),
 					'position' => 70,
 					'meta'     => array( 'target' => '' )
 				) );

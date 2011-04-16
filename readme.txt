@@ -4,7 +4,7 @@ Donate link: http://code.garyjones.co.uk/donate/
 Tags: admin bar, genesis
 Requires at least: 3.1
 Tested up to: 3.1.1
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 
 A conceptual fork of the Genesis Admin Bar Addition plugin, re-written from scratch, adding new features.
 
@@ -55,6 +55,9 @@ A plugin author can add support for their own settings page link. See the *Add C
 
 == Changelog ==
 
+= 1.1.2 =
+* Fixed URLs from being echoed to bottom of admin pages.
+
 = 1.1.1 =
 * Added option to enter GABP Debug mode by appending `gabp-debug` as querystring argument.
 * Fixed translation files by renaming them.
@@ -74,6 +77,12 @@ A plugin author can add support for their own settings page link. See the *Add C
 * First public version.
 
 == Upgrade Notice ==
+
+= 1.1.2 =
+Minor changes - remove echo from bottom of admin pages.
+
+= 1.1.1 =
+Minor changes - debug option, translation files.
 
 = 1.1 =
 Improved menu position calculation, added debug mode.
