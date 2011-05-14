@@ -7,7 +7,7 @@
  */
 /*
 Plugin Name: Genesis Admin Bar Plus
-Version: 1.1.3
+Version: 1.1.4
 Plugin URI: http://code.garyjones.co.uk/plugins/genesis-admin-bar-plus/
 Description: The plugin adds resources links related the Genesis Framework to the admin bar. It is a complete rewrite, effectively forked from <a href="http://profiles.wordpress.org/users/DeFries/">DeFries</a>' <a href="http://wordpress.org/extend/plugins/genesis-admin-bar-addition/">Genesis Admin Bar Addition</a>. See the readme for how to add specific support boards and other items to the menu.
 Author: Gary Jones
@@ -490,6 +490,7 @@ class Genesis_Admin_Bar_Plus {
 			'agentpress'         => array( __( 'AgentPress Child Theme', GABP_DOMAIN ), 86 ),
 			'amped'              => array( __( 'Amped Child Theme', GABP_DOMAIN ), 93 ),
 			'beecrafty'          => array( __( 'BeeCrafty Child Theme', GABP_DOMAIN ), 138 ),
+			'blissful'           => array( __( 'Blissful Child Theme', GABP_DOMAIN ), 169 ),
 			'church'             => array( __( 'Church Child Theme', GABP_DOMAIN ), 124 ),
 			'corporate'          => array( __( 'Corporate Child Theme', GABP_DOMAIN ), 109 ),
 			'crystal'            => array( __( 'Crystal Child Theme', GABP_DOMAIN ), 160 ),
@@ -508,6 +509,7 @@ class Genesis_Admin_Bar_Plus {
 			'magazine'           => array( __( 'Magazine Child Theme', GABP_DOMAIN ), 128 ),
 			'manhattan'          => array( __( 'Manhattan Child Theme', GABP_DOMAIN ), 152 ),
 			'metric'             => array( __( 'Metric Child Theme', GABP_DOMAIN ), 114 ),
+			'midnight'           => array( __( 'Midnight Child Theme', GABP_DOMAIN ), 170 ),
 			'mocha'              => array( __( 'Mocha Child Theme', GABP_DOMAIN ), 80 ),
 			'news'               => array( __( 'News Child Theme', GABP_DOMAIN ), 118 ),
 			'outreach'           => array( __( 'Outreach Child Theme', GABP_DOMAIN ), 112 ),

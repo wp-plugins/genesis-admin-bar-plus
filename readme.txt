@@ -3,8 +3,8 @@ Contributors: GaryJ
 Donate link: http://code.garyjones.co.uk/donate/
 Tags: admin bar, genesis
 Requires at least: 3.1
-Tested up to: 3.1.1
-Stable tag: 1.1.3
+Tested up to: 3.1.2
+Stable tag: 1.1.4
 
 A conceptual fork of the Genesis Admin Bar Addition plugin, re-written from scratch, adding new features.
 
@@ -55,6 +55,10 @@ A plugin author can add support for their own settings page link. See the *Add C
 
 == Changelog ==
 
+= 1.1.4 =
+* Add support boards for newly-released Midnight and Blissful themes.
+* Updated German translation
+
 = 1.1.3 =
 * Fixed issue with sub sub menus, affecting FAQ links.
 * Child menu items can now be added before parent items - the calculated positioning will add in the sum of all given ancestor item positions.
@@ -84,6 +88,12 @@ A plugin author can add support for their own settings page link. See the *Add C
 * First public version.
 
 == Upgrade Notice ==
+
+= 1.1.4 =
+Minor changes - add support boards for new themes, Midnight and Blissful.
+
+= 1.1.3 =
+Important changes if adding / modifying / removing menu entry.
 
 = 1.1.2 =
 Minor changes - remove echo from bottom of admin pages.
