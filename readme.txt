@@ -56,8 +56,8 @@ A plugin author can add support for their own settings page link. See the *Add C
 == Changelog ==
 
 = 1.1.4 =
-* Add support boards for newly-released Midnight and Blissful themes.
-* Updated German translation
+* Added support boards for newly-released Midnight and Blissful themes.
+* Updated German translation.
 
 = 1.1.3 =
 * Fixed issue with sub sub menus, affecting FAQ links.
