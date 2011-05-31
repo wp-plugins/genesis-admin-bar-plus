@@ -10,6 +10,8 @@ A conceptual fork of the Genesis Admin Bar Addition plugin, re-written from scra
 
 == Description ==
 
+The plugin adds resources links related the <a href="http://genesis-theme-framework.com/">Genesis Theme</a> to the admin bar.
+
 * Plugin completely re-written as a class to remove function pollution from the global scope.
 * Adds support for menu item positioning, so custom entries can be added anywhere, and not just as the final items.
 * Adds *opens in a new window* non-image indicator for modern browsers.
@@ -38,6 +40,7 @@ You can also add a reference to another board via the `gabp_support_boards` filt
 
 * Design Settings (for Prose Theme)
 * GenesisConnect
+* Genesis Simple Breadcrumbs
 * Simple Edits
 * Simple Hooks
 * Simple Sidebars
@@ -54,6 +57,13 @@ A plugin author can add support for their own settings page link. See the *Add C
 5. Showing the StudioPress menu item removed, Support menu item moved position and new custom menu items added
 
 == Changelog ==
+
+= 1.2.0 =
+* Added support for Genesis Simple Breadcrumbs plugin.
+* Added support for Free Child Themes support board.
+* Improved code to eliminate global constant and allow actions and filters to be unhooked by other plugins or functions.php.
+* Removed two links due to StudioPress website re-organisation.
+* Now requires PHP 5.
 
 = 1.1.4 =
 * Added support boards for newly-released Midnight and Blissful themes.
@@ -88,6 +98,9 @@ A plugin author can add support for their own settings page link. See the *Add C
 * First public version.
 
 == Upgrade Notice ==
+
+= 1.2.0 =
+Several changes - add support for Genesis Simple Breadcrumbs plugin, free child themes board, improved code, removed two links. NOW REQUIRES PHP5.
 
 = 1.1.4 =
 Minor changes - add support boards for new themes, Midnight and Blissful.
