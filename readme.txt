@@ -10,6 +10,8 @@ A conceptual fork of the Genesis Admin Bar Addition plugin, re-written from scra
 
 == Description ==
 
+The plugin adds resources links related the <a href="http://genesis-theme-framework.com/">Genesis Theme</a> to the admin bar.
+
 * Plugin completely re-written as a class to remove function pollution from the global scope.
 * Adds support for menu item positioning, so custom entries can be added anywhere, and not just as the final items.
 * Adds *opens in a new window* non-image indicator for modern browsers.
