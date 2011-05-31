@@ -1,0 +1,302 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Genesis Admin Bar Plus (GABP)\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tags/genesis-admin-bar-plus\n"
+"POT-Creation-Date: 2010-06-23 17:08+0000\n"
+"PO-Revision-Date: 2011-05-14 09:48-0000\n"
+"Last-Translator: Gary Jones <gamajo@gamajo.com>\n"
+"Language-Team: DECKERWEB <deckerweb.mobil@googlemail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: genesis-admin-bar-plus.php:136
+msgid "Genesis"
+msgstr "Genesis"
+
+#: genesis-admin-bar-plus.php:145
+msgid "Genesis Support"
+msgstr "Genesis Support-Forum"
+
+#: genesis-admin-bar-plus.php:151
+msgid "Genesis Codex"
+msgstr "Genesis Codex"
+
+#: genesis-admin-bar-plus.php:157
+msgid "StudioPress"
+msgstr "StudioPress"
+
+#: genesis-admin-bar-plus.php:180
+msgid "Dev.StudioPress Sitemap"
+msgstr "Dev.StudioPress Inhaltsverzeichnis"
+
+#: genesis-admin-bar-plus.php:186
+msgid "Action Hooks Reference"
+msgstr "Action Hooks Referenz"
+
+#: genesis-admin-bar-plus.php:192
+msgid "Filter Hooks Reference"
+msgstr "Filter Hooks Referenz"
+
+#: genesis-admin-bar-plus.php:198
+msgid "Functions Reference"
+msgstr "Funktionen-Referenz"
+
+#: genesis-admin-bar-plus.php:204
+msgid "Shortcodes Reference"
+msgstr "Shortcodes-Referenz"
+
+#: genesis-admin-bar-plus.php:210
+msgid "Visual Markup Guide"
+msgstr "Visueller Markup-Guide"
+
+#: genesis-admin-bar-plus.php:218
+msgid "Themes"
+msgstr "Themes"
+
+#: genesis-admin-bar-plus.php:224
+msgid "Plugins"
+msgstr "Plugins"
+
+#: genesis-admin-bar-plus.php:230
+msgid "<abbr title=\"Frequently asked question\">FAQ</abbr>s"
+msgstr "<abbr title=\"H&auml;ufig gestellte Fragen\">FAQ</abbr>s"
+
+#: genesis-admin-bar-plus.php:239
+msgid "General <abbr>FAQ</abbr>s"
+msgstr "Allgemeine <abbr>FAQ</abbr>s"
+
+#: genesis-admin-bar-plus.php:245
+msgid "Support <abbr>FAQ</abbr>s"
+msgstr "Support-<abbr>FAQ</abbr>s"
+
+#: genesis-admin-bar-plus.php:251
+msgid "Theme <abbr>FAQ</abbr>s"
+msgstr "Theme-<abbr>FAQ</abbr>s"
+
+#: genesis-admin-bar-plus.php:262
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: genesis-admin-bar-plus.php:271
+msgid "Theme Settings"
+msgstr "Theme-Einstellungen"
+
+#: genesis-admin-bar-plus.php:278
+msgid "SEO Settings"
+msgstr "SEO-Einstellungen"
+
+#: genesis-admin-bar-plus.php:288
+msgid "Design Settings"
+msgstr "Design-Einstellungen"
+
+#: genesis-admin-bar-plus.php:299
+#: genesis-admin-bar-plus.php:526
+msgid "GenesisConnect"
+msgstr "GenesisConnect"
+
+#: genesis-admin-bar-plus.php:310
+msgid "Simple Edits"
+msgstr "Simple Edits (Plugin)"
+
+#: genesis-admin-bar-plus.php:321
+msgid "Simple Hooks"
+msgstr "Simple Hooks (Plugin)"
+
+#: genesis-admin-bar-plus.php:334
+msgid "Simple Sidebars"
+msgstr "Simple Sidebars (Plugin)"
+
+#: genesis-admin-bar-plus.php:345
+msgid "Simple URLs"
+msgstr "Simple URLs (Plugin)"
+
+#: genesis-admin-bar-plus.php:465
+msgid "Calculated menu position"
+msgstr "Berechnete Men&uuml;position"
+
+#: genesis-admin-bar-plus.php:488
+msgid "Genesis Framework"
+msgstr "Genesis Framework"
+
+#: genesis-admin-bar-plus.php:489
+msgid "Agency Child Theme"
+msgstr "Agency Child Theme"
+
+#: genesis-admin-bar-plus.php:490
+msgid "AgentPress Child Theme"
+msgstr "AgentPress Child Theme"
+
+#: genesis-admin-bar-plus.php:491
+msgid "Amped Child Theme"
+msgstr "Amped Child Theme"
+
+#: genesis-admin-bar-plus.php:492
+msgid "BeeCrafty Child Theme"
+msgstr "BeeCrafty Child Theme"
+
+#: genesis-admin-bar-plus.php:493
+msgid "Blissful Child Theme"
+msgstr "Blissful Child Theme"
+
+#: genesis-admin-bar-plus.php:494
+msgid "Church Child Theme"
+msgstr "Church Child Theme"
+
+#: genesis-admin-bar-plus.php:495
+msgid "Corporate Child Theme"
+msgstr "Corporate Child Theme"
+
+#: genesis-admin-bar-plus.php:496
+msgid "Crystal Child Theme"
+msgstr "Crystal Child Theme"
+
+#: genesis-admin-bar-plus.php:497
+msgid "Delicious Child Theme"
+msgstr "Delicious Child Theme"
+
+#: genesis-admin-bar-plus.php:498
+msgid "Education Child Theme"
+msgstr "Education Child Theme"
+
+#: genesis-admin-bar-plus.php:499
+msgid "Enterprise Child Theme"
+msgstr "Enterprise Child Theme"
+
+#: genesis-admin-bar-plus.php:500
+msgid "Executive Child Theme"
+msgstr "Executive Child Theme"
+
+#: genesis-admin-bar-plus.php:501
+msgid "Expose Child Theme"
+msgstr "Expose Child Theme"
+
+#: genesis-admin-bar-plus.php:502
+msgid "Family Tree Child Theme"
+msgstr "Family Tree Child Theme"
+
+#: genesis-admin-bar-plus.php:503
+msgid "Focus Child Theme"
+msgstr "Focus Child Theme"
+
+#: genesis-admin-bar-plus.php:504
+msgid "Freelance Child Theme"
+msgstr "Freelance Child Theme"
+
+#: genesis-admin-bar-plus.php:505
+msgid "Going Green Child Theme"
+msgstr "Going Green Child Theme"
+
+#: genesis-admin-bar-plus.php:506
+msgid "Landscape Child Theme"
+msgstr "Landscape Child Theme"
+
+#: genesis-admin-bar-plus.php:507
+msgid "Lexicon Child Theme"
+msgstr "Lexicon Child Theme"
+
+#: genesis-admin-bar-plus.php:508
+msgid "Lifestyle Child Theme"
+msgstr "Lifestyle Child Theme"
+
+#: genesis-admin-bar-plus.php:509
+msgid "Magazine Child Theme"
+msgstr "Magazine Child Theme"
+
+#: genesis-admin-bar-plus.php:510
+msgid "Manhattan Child Theme"
+msgstr "Manhattan Child Theme"
+
+#: genesis-admin-bar-plus.php:511
+msgid "Metric Child Theme"
+msgstr "Metric Child Theme"
+
+#: genesis-admin-bar-plus.php:512
+msgid "Midnight Child Theme"
+msgstr "Midnight Child Theme"
+
+#: genesis-admin-bar-plus.php:513
+msgid "Mocha Child Theme"
+msgstr "Mocha Child Theme"
+
+#: genesis-admin-bar-plus.php:514
+msgid "News Child Theme"
+msgstr "News Child Theme"
+
+#: genesis-admin-bar-plus.php:515
+msgid "Outreach Child Theme"
+msgstr "Outreach Child Theme"
+
+#: genesis-admin-bar-plus.php:516
+msgid "Pixel Happy Child Theme"
+msgstr "Pixel Happy Child Theme"
+
+#: genesis-admin-bar-plus.php:517
+msgid "Platinum Child Theme"
+msgstr "Platinum Child Theme"
+
+#: genesis-admin-bar-plus.php:518
+msgid "Pretty Young Thing Child Theme"
+msgstr "Pretty Young Thing Child Theme"
+
+#: genesis-admin-bar-plus.php:519
+msgid "Prose Child Theme"
+msgstr "Prose Child Theme"
+
+#: genesis-admin-bar-plus.php:520
+msgid "Serenity Child Theme"
+msgstr "Serenity Child Theme"
+
+#: genesis-admin-bar-plus.php:521
+msgid "Sleek Child Theme"
+msgstr "Sleek Child Theme"
+
+#: genesis-admin-bar-plus.php:522
+msgid "Social Eyes Child Theme"
+msgstr "Social Eyes Child Theme"
+
+#: genesis-admin-bar-plus.php:523
+msgid "Streamline Child Theme"
+msgstr "Streamline Child Theme"
+
+#: genesis-admin-bar-plus.php:524
+msgid "Tapestry Child Theme"
+msgstr "Tapestry Child Theme"
+
+#: genesis-admin-bar-plus.php:525
+msgid "Venture Child Theme"
+msgstr "Venture Child Theme"
+
+#: genesis-admin-bar-plus.php:526
+msgid "Genesis Translations"
+msgstr "Genesis-&Uuml;bersetzungen"
+
+#: genesis-admin-bar-plus.php:527
+msgid "StudioPress Plugins"
+msgstr "StudioPress Plugins"
+
+#. Plugin Name of the plugin/theme
+msgid "Genesis Admin Bar Plus"
+msgstr "Genesis Admin Bar Plus"
+
+#. Plugin URI of the plugin/theme
+msgid "http://code.garyjones.co.uk/plugins/genesis-admin-bar-plus/"
+msgstr "http://code.garyjones.co.uk/plugins/genesis-admin-bar-plus/"
+
+#. Description of the plugin/theme
+msgid "The plugin adds resources links related the Genesis Framework to the admin bar. It is a complete rewrite, effectively forked from <a href=\"http://profiles.wordpress.org/users/DeFries/\">DeFries</a>' <a href=\"http://wordpress.org/extend/plugins/genesis-admin-bar-addition/\">Genesis Admin Bar Addition</a>. See the readme for how to add specific support boards and other items to the menu."
+msgstr "Das Plugin f&uuml;gt der Adminbar erg&auml;nzende Links zum Genesis Framework hinzu. Es ist ein v&ouml;llig neugeschriebenes Plugin, ausgehend <a href=\"http://wordpress.org/extend/plugins/genesis-admin-bar-addition/\">Genesis Admin Bar Addition</a> vom Entwickler <a href=\"http://profiles.wordpress.org/users/DeFries/\">DeFries</a>. Schauen Sie in die readme.txt-Dateie, wie Sie die Unterst&uuml;tzung f&uuml;r spezielle Unterforen des StudioPress-Supportforums und andere Eintr&auml;ge dem Men&uuml; hinzuf&uuml;gen k&ouml;nnen (Hinweis: alles in Englisch!)."
+
+#. Author of the plugin/theme
+msgid "Gary Jones"
+msgstr "Gary Jones (Plugin-Entwickler)"
+
+#. Author URI of the plugin/theme
+msgid "http://garyjones.co.uk/"
+msgstr "http://garyjones.co.uk/"
+
