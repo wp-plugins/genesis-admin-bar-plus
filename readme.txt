@@ -4,7 +4,7 @@ Donate link: http://code.garyjones.co.uk/donate/
 Tags: admin bar, genesis
 Requires at least: 3.1
 Tested up to: 3.2
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 
 A conceptual fork of the Genesis Admin Bar Addition plugin, re-written from scratch, adding new features.
 
@@ -58,6 +58,10 @@ A plugin author can add support for their own settings page link. See the *Add C
 
 == Changelog ==
 
+= 1.2.1 =
+* Added styles for RTL languages.
+* Removed German translation files, and included a link in the new Translation section of the readme.
+
 = 1.2.0 =
 * Added support for Genesis Simple Breadcrumbs plugin.
 * Added support for Free Child Themes support board.
@@ -98,6 +102,9 @@ A plugin author can add support for their own settings page link. See the *Add C
 * First public version.
 
 == Upgrade Notice ==
+
+= 1.2.1 =
+Minor change - add styles for RTL support.
 
 = 1.2.0 =
 Several changes - add support for Genesis Simple Breadcrumbs plugin, free child themes board, improved code, removed two links. NOW REQUIRES PHP5.
@@ -181,3 +188,7 @@ add_theme_support('gabp-support-translations'); // Adds direct link to Genesis T
 add_theme_support('gabp-support-plugins'); // Adds direct link to StudioPress Plugins support board
 add_theme_support('gabp-support-genesisconnect'); // Adds direct link to GenesisConnect support board`
 For child themes, the bit after the `gabp-support-` string must be the theme name, lowercase, with spaces replaced with hyphens.
+
+== Translations ==
+
+* Deutsch: http://deckerweb.de/material/sprachdateien/genesis-plugins/#genesis-admin-bar-plus

@@ -6,7 +6,7 @@
  * @author Gary Jones
  *
  * Plugin Name: Genesis Admin Bar Plus
- * Version: 1.2.0
+ * Version: 1.2.1
  * Plugin URI: http://code.garyjones.co.uk/plugins/genesis-admin-bar-plus/
  * Description: The plugin adds resources links related the <a href="http://genesis-theme-framework.com/">Genesis Theme</a> to the admin bar. It is a complete rewrite, effectively forked from <a href="http://profiles.wordpress.org/users/DeFries/">DeFries</a>' <a href="http://wordpress.org/extend/plugins/genesis-admin-bar-addition/">Genesis Admin Bar Addition</a>. See the readme for how to add specific support boards and other items to the menu.
  * Author: Gary Jones
@@ -26,20 +26,6 @@
  * @since 1.1
  */
 //define ( 'GABP_DEBUG', true );
-
-
-//add_action( 'init', 'genesis_admin_bar_plus' );
-///**
-// * Initialise the class, once theme and plugin data is available.
-// *
-// * @since 1.0
-// * @uses Genesis_Admin_Bar_Plus Main plugin class.
-// */
-//function genesis_admin_bar_plus() {
-//
-//	$genesis_admin_bar_plus = new Genesis_Admin_Bar_Plus;
-//
-//}
 
 /**
  * Main plugin class. Adds Genesis-related resource links to the admin bar
@@ -94,7 +80,7 @@ class Genesis_Admin_Bar_Plus {
 	 * @link http://core.trac.wordpress.org/attachment/ticket/16149/query-standard-format-posts.php
 	 * @link http://twitter.com/#!/markjaquith/status/66862769030438912
 	 *
-	 * @var Genesis_Js_No_Js
+	 * @var Genesis_Admin_Bar_Plus
 	 */
 	static $instance;
 
@@ -155,7 +141,7 @@ class Genesis_Admin_Bar_Plus {
 			'title'    => __( 'Genesis', $this->domain ),
 			'href'     => '',
 			'position' => 0,
-			'meta'     => array( 'class' => 'gabp-icon-genesis gabp-no-link', 'target' => '' )
+			'meta'     => array( 'class' => 'gabp-icon-genesis gabp-no-link', 'target' => '', 'html' => '<span class="gabp-icon"></span>' )
 		) );
 
 		// Add Genesis menu items
@@ -599,7 +585,7 @@ class Genesis_Admin_Bar_Plus {
 		?><style type="text/css">
 			#wpadminbar a[target=_blank]:after,
 			#wpadminbar .menupop a[target=_blank] span:after {
-				background-image: url(data:image/gif;base64,R0lGODlhBwAIAKIEAM7Ozt7e3u/v7729rf///wAAAAAAAAAAACH5BAEAAAQALAAAAAAHAAgAAAMUSEoCsyqAOQMDERPMld7eolGTkgAAOw%3D%3D);
+				background: url(data:image/gif;base64,R0lGODlhBwAIAKIEAM7Ozt7e3u/v7729rf///wAAAAAAAAAAACH5BAEAAAQALAAAAAAHAAgAAAMUSEoCsyqAOQMDERPMld7eolGTkgAAOw%3D%3D) center left no-repeat;
 				display: inline-block;
 				content: "";
 				height: 8px;
@@ -616,13 +602,37 @@ class Genesis_Admin_Bar_Plus {
 			<?php
 			if ( defined( 'GENESIS_SETTINGS_FIELD' ) ) {
 			?>
-			#wpadminbar .gabp-icon-genesis>a {
-				background: url(<?php echo PARENT_URL; ?>/images/genesis.gif) no-repeat 0.85em 50%;
-			}
 			#wpadminbar .gabp-icon-genesis>a span {
 				padding-left: 20px;
 			}
-			<?php } ?>
+			#wpadminbar .gabp-icon-genesis {
+				position: relative;
+			}
+			#wpadminbar .gabp-icon {
+				background: url(<?php echo PARENT_URL; ?>/images/genesis.gif) center center no-repeat;
+				display: block;
+				height: 16px;
+				left: 0.85em;
+				position: absolute;
+				top: 0.5em;
+				width: 16px;
+			}
+			<?php if ( is_RTL() ) { ?>
+			#wpadminbar a[target=_blank]:after,
+			#wpadminbar .menupop a[target=_blank] span:after {
+				background-position: center right;
+				margin-left: 0;
+				margin-right: 5px;
+			}
+			#wpadminbar .gabp-icon {
+				left: auto;
+				right: 0.85em;
+			}
+			#wpadminbar .gabp-icon-genesis>a span {
+				padding-right: 20px !important;
+			}
+			<?php }
+			} ?>
 		</style>
 		<?php
 
