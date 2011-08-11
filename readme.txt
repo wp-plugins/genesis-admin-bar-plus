@@ -4,7 +4,7 @@ Donate link: http://code.garyjones.co.uk/donate/
 Tags: admin bar, genesis
 Requires at least: 3.1
 Tested up to: 3.2
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 
 A conceptual fork of the Genesis Admin Bar Addition plugin, re-written from scratch, adding new features.
 
@@ -58,6 +58,9 @@ A plugin author can add support for their own settings page link. See the *Add C
 
 == Changelog ==
 
+= 1.2.2 =
+* Added support for various child theme support boards.
+
 = 1.2.1 =
 * Added styles for RTL languages.
 * Removed German translation files, and included a link in the new Translation section of the readme.
@@ -102,6 +105,9 @@ A plugin author can add support for their own settings page link. See the *Add C
 * First public version.
 
 == Upgrade Notice ==
+
+= 1.2.2 =
+Minor changes - add support boards for new themes.
 
 = 1.2.1 =
 Minor change - add styles for RTL support.

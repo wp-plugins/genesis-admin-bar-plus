@@ -6,7 +6,7 @@
  * @author Gary Jones
  *
  * Plugin Name: Genesis Admin Bar Plus
- * Version: 1.2.1
+ * Version: 1.2.2
  * Plugin URI: http://code.garyjones.co.uk/plugins/genesis-admin-bar-plus/
  * Description: The plugin adds resources links related the <a href="http://genesis-theme-framework.com/">Genesis Theme</a> to the admin bar. It is a complete rewrite, effectively forked from <a href="http://profiles.wordpress.org/users/DeFries/">DeFries</a>' <a href="http://wordpress.org/extend/plugins/genesis-admin-bar-addition/">Genesis Admin Bar Addition</a>. See the readme for how to add specific support boards and other items to the menu.
  * Author: Gary Jones
@@ -506,16 +506,20 @@ class Genesis_Admin_Bar_Plus {
 			'agency'             => array( __( 'Agency Child Theme', $this->domain ), 119 ),
 			'agentpress'         => array( __( 'AgentPress Child Theme', $this->domain ), 86 ),
 			'amped'              => array( __( 'Amped Child Theme', $this->domain ), 93 ),
+			'associate'          => array( __( 'Associate Child Theme', $this->domain ), 174 ),
 			'beecrafty'          => array( __( 'BeeCrafty Child Theme', $this->domain ), 138 ),
+			'blingless'          => array( __( 'Blingless Child Theme', $this->domain ), 181 ),
 			'blissful'           => array( __( 'Blissful Child Theme', $this->domain ), 169 ),
 			'church'             => array( __( 'Church Child Theme', $this->domain ), 124 ),
 			'corporate'          => array( __( 'Corporate Child Theme', $this->domain ), 109 ),
 			'crystal'            => array( __( 'Crystal Child Theme', $this->domain ), 160 ),
 			'delicious'          => array( __( 'Delicious Child Theme', $this->domain ), 130 ),
 			'education'          => array( __( 'Education Child Theme', $this->domain ), 126 ),
+			'elle'               => array( __( 'Elle Child Theme', $this->domain ), 176 ),
 			'enterprise'         => array( __( 'Enterprise Child Theme', $this->domain ), 102 ),
 			'executive'          => array( __( 'Executive Child Theme', $this->domain ), 79 ),
 			'expose'             => array( __( 'Expose Child Theme', $this->domain ), 136 ),
+			'fabric'             => array( __( 'Family Tree Child Theme', $this->domain ), 173 ),
 			'family-tree'        => array( __( 'Family Tree Child Theme', $this->domain ), 100 ),
 			'focus'              => array( __( 'Focus Child Theme', $this->domain ), 167 ),
 			'freelance'          => array( __( 'Freelance Child Theme', $this->domain ), 121 ),
@@ -525,8 +529,10 @@ class Genesis_Admin_Bar_Plus {
 			'lifestyle'          => array( __( 'Lifestyle Child Theme', $this->domain ), 92 ),
 			'magazine'           => array( __( 'Magazine Child Theme', $this->domain ), 128 ),
 			'manhattan'          => array( __( 'Manhattan Child Theme', $this->domain ), 152 ),
+			'maximum'            => array( __( 'Maximum Child Theme', $this->domain ), 177 ),
 			'metric'             => array( __( 'Metric Child Theme', $this->domain ), 114 ),
 			'midnight'           => array( __( 'Midnight Child Theme', $this->domain ), 170 ),
+			'minimum'            => array( __( 'Minimum Child Theme', $this->domain ), 172 ),
 			'mocha'              => array( __( 'Mocha Child Theme', $this->domain ), 80 ),
 			'news'               => array( __( 'News Child Theme', $this->domain ), 118 ),
 			'outreach'           => array( __( 'Outreach Child Theme', $this->domain ), 112 ),
@@ -540,6 +546,7 @@ class Genesis_Admin_Bar_Plus {
 			'streamline'         => array( __( 'Streamline Child Theme', $this->domain ), 81 ),
 			'tapestry'           => array( __( 'Tapestry Child Theme', $this->domain ), 154 ),
 			'venture'            => array( __( 'Venture Child Theme', $this->domain ), 149 ),
+			'vintage'            => array( __( 'Vintage Child Theme', $this->domain ), 178 ),
 			'translations'       => array( __( 'Genesis Translations', $this->domain ), 168 ),
 			'plugins'            => array( __( 'StudioPress Plugins', $this->domain ), 142 ),
 			'genesisconnect'     => array( __( 'GenesisConnect', $this->domain ), 155 )
