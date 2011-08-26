@@ -6,7 +6,7 @@
  * @author Gary Jones
  *
  * Plugin Name: Genesis Admin Bar Plus
- * Version: 1.2.3
+ * Version: 1.2.4
  * Plugin URI: http://code.garyjones.co.uk/plugins/genesis-admin-bar-plus/
  * Description: The plugin adds resources links related the <a href="http://genesis-theme-framework.com/">Genesis Theme</a> to the admin bar. It is a complete rewrite, effectively forked from <a href="http://profiles.wordpress.org/users/DeFries/">DeFries</a>' <a href="http://wordpress.org/extend/plugins/genesis-admin-bar-addition/">Genesis Admin Bar Addition</a>. See the readme for how to add specific support boards and other items to the menu.
  * Author: Gary Jones
@@ -537,6 +537,7 @@ class Genesis_Admin_Bar_Plus {
 			'going-green'        => array( __( 'Going Green Child Theme', $this->domain ), 116 ),
 			'landscape'          => array( __( 'Landscape Child Theme', $this->domain ), 108 ),
 			'lexicon'            => array( __( 'Lexicon Child Theme', $this->domain ), 146 ),
+			'legacy'             => array( __( 'Legacy Child Theme', $this->domain ), 184 ),
 			'lifestyle'          => array( __( 'Lifestyle Child Theme', $this->domain ), 92 ),
 			'magazine'           => array( __( 'Magazine Child Theme', $this->domain ), 128 ),
 			'manhattan'          => array( __( 'Manhattan Child Theme', $this->domain ), 152 ),
@@ -546,6 +547,7 @@ class Genesis_Admin_Bar_Plus {
 			'minimum'            => array( __( 'Minimum Child Theme', $this->domain ), 172 ),
 			'mocha'              => array( __( 'Mocha Child Theme', $this->domain ), 80 ),
 			'news'               => array( __( 'News Child Theme', $this->domain ), 118 ),
+			'nitrous'            => array( __( 'Nitrous Child Theme', $this->domain ), 183 ),
 			'outreach'           => array( __( 'Outreach Child Theme', $this->domain ), 112 ),
 			'pixel-happy'        => array( __( 'Pixel Happy Child Theme', $this->domain ), 87 ),
 			'platinum'           => array( __( 'Platinum Child Theme', $this->domain ), 73 ),
