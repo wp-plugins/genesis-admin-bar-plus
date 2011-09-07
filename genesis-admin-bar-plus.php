@@ -3,15 +3,15 @@
  * Main plugin file. The plugin adds resources links related the Genesis Theme to the admin bar.
  *
  * @package GenesisAdminBarPlus
- * @author Gary Jones
+ * @author  Gary Jones
  *
  * Plugin Name: Genesis Admin Bar Plus
- * Version: 1.2.4
- * Plugin URI: http://code.garyjones.co.uk/plugins/genesis-admin-bar-plus/
+ * Version:     1.2.4
+ * Plugin URI:  http://code.garyjones.co.uk/plugins/genesis-admin-bar-plus/
  * Description: The plugin adds resources links related the <a href="http://genesis-theme-framework.com/">Genesis Theme</a> to the admin bar. It is a complete rewrite, effectively forked from <a href="http://profiles.wordpress.org/users/DeFries/">DeFries</a>' <a href="http://wordpress.org/extend/plugins/genesis-admin-bar-addition/">Genesis Admin Bar Addition</a>. See the readme for how to add specific support boards and other items to the menu.
- * Author: Gary Jones
- * Author URI: http://garyjones.co.uk/
- * License: GPLv3
+ * Author:      Gary Jones
+ * Author URI:  http://garyjones.co.uk/
+ * License:     GPLv3
  */
 
 /**
@@ -77,10 +77,10 @@ class Genesis_Admin_Bar_Plus {
 	 * Holds copy of instance, so other plugins can remove our hooks.
 	 *
 	 * @since 1.0
-	 * @link http://core.trac.wordpress.org/attachment/ticket/16149/query-standard-format-posts.php
-	 * @link http://twitter.com/#!/markjaquith/status/66862769030438912
+	 * @link  http://core.trac.wordpress.org/attachment/ticket/16149/query-standard-format-posts.php
+	 * @link  http://twitter.com/#!/markjaquith/status/66862769030438912
 	 *
-	 * @var Genesis_Admin_Bar_Plus
+	 * @var   Genesis_Admin_Bar_Plus
 	 */
 	static $instance;
 
@@ -264,7 +264,7 @@ class Genesis_Admin_Bar_Plus {
 			// Add Settings menu item
 			$menu->add_item( 'settings', array(
 				'parent'   => $this->genesis,
-				'title'    => __( 'Settings', 'genesis' ),
+				'title'    => __( 'Settings', $this->domain ),
 				'href'     => is_admin() ? menu_page_url( 'genesis', false ) : admin_url( add_query_arg( 'page', 'genesis', 'admin.php' ) ),
 				'position' => 40,
 				'meta'     => array( 'target' => '' )
@@ -273,14 +273,14 @@ class Genesis_Admin_Bar_Plus {
 			// Add Settings submenu items
 			$menu->add_item( 'theme-settings', array(
 				'parent'   => $this->settings,
-				'title'    => __( 'Theme Settings', 'genesis' ),
+				'title'    => __( 'Theme Settings', $this->domain ),
 				'href'     => is_admin() ? menu_page_url( 'genesis', false ) : admin_url( add_query_arg( 'page', 'genesis', 'admin.php' ) ),
 				'position' => 10,
 				'meta'     => array( 'target' => '' )
 			) );
 			$menu->add_item( 'seo-settings', array(
 				'parent'   => $this->settings,
-				'title'    => __( 'SEO Settings', 'genesis' ),
+				'title'    => __( 'SEO Settings', $this->domain ),
 				'href'     => is_admin() ? menu_page_url( 'seo-settings', false ) : admin_url( add_query_arg( 'page', 'seo-settings', 'admin.php' ) ),
 				'position' => 20,
 				'meta'     => array( 'target' => '' )
@@ -290,7 +290,7 @@ class Genesis_Admin_Bar_Plus {
 			if ( defined( 'PROSE_DOMAIN' ) ) {
 				$menu->add_item( 'design-settings', array(
 					'parent'   => $this->settings,
-					'title'    => __( 'Design Settings', PROSE_DOMAIN ),
+					'title'    => __( 'Design Settings', $this->domain ),
 					'href'     => is_admin() ? menu_page_url( 'design-settings', false ) : admin_url( add_query_arg( 'page', 'design-settings', 'admin.php' ) ),
 					'position' => 30,
 					'meta'     => array( 'target' => '' )
@@ -376,6 +376,8 @@ class Genesis_Admin_Bar_Plus {
 				) );
 			}
 
+			// No Genesis Tabs, as it has no settings page.
+
 			do_action( 'gabp_menu_items', $menu, $this->prefix, $this->genesis, $this->support, $this->dev, $this->studiopress, $this->settings, $this->faqs );
 		}
 
@@ -385,10 +387,10 @@ class Genesis_Admin_Bar_Plus {
 	 * Ensure that child item has a minimum position equal to that of its parent.
 	 * Recursive function. Private.
 	 *
-	 * @since 1.1
+	 * @since  1.1
 	 *
-	 * @param string $id Menu item ID
-	 * @param array $menu_items Menu item arguments
+	 * @param  string $id Menu item ID
+	 * @param  array $menu_items Menu item arguments
 	 * @return array
 	 */
 	function _pre_sort( $id ) {
@@ -433,7 +435,7 @@ class Genesis_Admin_Bar_Plus {
 	 * Helper function to sort the menu items by position. Private.
 	 *
 	 * @since 1.0
-	 * @todo Try and find some way of sorting children after parent ID first
+	 * @todo  Try and find some way of sorting children after parent ID first
 	 */
 	function _sort( $a, $b ) {
 
@@ -454,9 +456,9 @@ class Genesis_Admin_Bar_Plus {
 	 * filter.
 	 *
 	 * @since 1.0
-	 * @uses Genesis_Admin_Bar_Plus::sort() Helper function for uasort()
-	 * @uses Genesis_Admin_Bar_Plus_Menu::get_items() Return default menu items
-	 * @uses validate_child_item_position() Pre-sort menu items
+	 * @uses  Genesis_Admin_Bar_Plus::sort() Helper function for uasort()
+	 * @uses  Genesis_Admin_Bar_Plus_Menu::get_items() Return default menu items
+	 * @uses  validate_child_item_position() Pre-sort menu items
 	 *
 	 * @global WP_Admin_Bar $wp_admin_bar
 	 */
@@ -505,7 +507,7 @@ class Genesis_Admin_Bar_Plus {
 	 * The key must be lowercase, and use hyphen for spaces e.g.
 	 *   add_theme_support( 'gabp-support-pretty-young-thing' );
 	 *
-	 * @since 1.0
+	 * @since  1.0
 	 *
 	 * @return array Array of support boards.
 	 */
@@ -532,6 +534,7 @@ class Genesis_Admin_Bar_Plus {
 			'expose'             => array( __( 'Expose Child Theme', $this->domain ), 136 ),
 			'fabric'             => array( __( 'Family Tree Child Theme', $this->domain ), 173 ),
 			'family-tree'        => array( __( 'Family Tree Child Theme', $this->domain ), 100 ),
+			'fashionista'        => array( __( 'Fashionista Child Theme', $this->domain ), 185 ),
 			'focus'              => array( __( 'Focus Child Theme', $this->domain ), 167 ),
 			'freelance'          => array( __( 'Freelance Child Theme', $this->domain ), 121 ),
 			'going-green'        => array( __( 'Going Green Child Theme', $this->domain ), 116 ),
@@ -546,6 +549,7 @@ class Genesis_Admin_Bar_Plus {
 			'midnight'           => array( __( 'Midnight Child Theme', $this->domain ), 170 ),
 			'minimum'            => array( __( 'Minimum Child Theme', $this->domain ), 172 ),
 			'mocha'              => array( __( 'Mocha Child Theme', $this->domain ), 80 ),
+			'modern-blogger'     => array( __( 'Modern Blogger Child Theme', $this->domain ), 187 ),
 			'news'               => array( __( 'News Child Theme', $this->domain ), 118 ),
 			'nitrous'            => array( __( 'Nitrous Child Theme', $this->domain ), 183 ),
 			'outreach'           => array( __( 'Outreach Child Theme', $this->domain ), 112 ),
@@ -554,6 +558,7 @@ class Genesis_Admin_Bar_Plus {
 			'pretty-young-thing' => array( __( 'Pretty Young Thing Child Theme', $this->domain ), 166 ),
 			'prose'              => array( __( 'Prose Child Theme', $this->domain ), 147 ),
 			'serenity'           => array( __( 'Serenity Child Theme', $this->domain ), 84 ),
+			'scribble'           => array( __( 'Scribble Child Theme', $this->domain ), 186 ),
 			'sleek'              => array( __( 'Sleek Child Theme', $this->domain ), 132 ),
 			'social-eyes'        => array( __( 'Social Eyes Child Theme', $this->domain ), 165 ),
 			'streamline'         => array( __( 'Streamline Child Theme', $this->domain ), 81 ),
@@ -572,9 +577,9 @@ class Genesis_Admin_Bar_Plus {
 	 * Return single forum ID from array of support boards. If name not found,
 	 * returns false.
 	 *
-	 * @since 1.0
+	 * @since  1.0
 	 *
-	 * @param string $name Lowercase, hyphen-spaced theme name, e.g. family-tree.
+	 * @param  string $name Lowercase, hyphen-spaced theme name, e.g. family-tree.
 	 * @return integer|boolean Support board ID, or false if board not found.
 	 */
 	function get_support_board( $name ) {
@@ -663,7 +668,7 @@ class Genesis_Admin_Bar_Plus {
 	 *
 	 * Can be activated by uncommenting the line near the top of this file.
 	 *
-	 * @since 1.1
+	 * @since  1.1
 	 *
 	 * @return boolean
 	 */
@@ -708,9 +713,9 @@ class Genesis_Admin_Bar_Plus_Menu {
 	/**
 	 * Retrieve single menu item.
 	 *
-	 * @since 1.1
+	 * @since  1.1
 	 *
-	 * @param string $id Menu item identifier
+	 * @param  string $id Menu item identifier
 	 * @return array Menu item arguments
 	 */
 	function get_item( $id ) {
@@ -752,7 +757,7 @@ class Genesis_Admin_Bar_Plus_Menu {
 	/**
 	 * Return the array of menu items. Public.
 	 *
-	 * @since 1.0
+	 * @since  1.0
 	 *
 	 * @return array All menu items
 	 */

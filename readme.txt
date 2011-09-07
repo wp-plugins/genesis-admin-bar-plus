@@ -6,16 +6,20 @@ Requires at least: 3.1
 Tested up to: 3.2.1
 Stable tag: 1.2.4
 
-A conceptual fork of the Genesis Admin Bar Addition plugin, re-written from scratch, adding new features.
+Adds resource links related to the Genesis Framework to the admin bar.
 
 == Description ==
 
-The plugin adds resources links related the <a href="http://genesis-theme-framework.com/">Genesis Theme</a> to the admin bar.
+This plugin adds resources links related to the <a href="http://genesis-theme-framework.com/">Genesis Framework</a> to the admin bar.
 
-* Plugin completely re-written as a class to remove function pollution from the global scope.
+These resources include direct links to StudioPress support forums for each theme, quick access to Genesis Theme and SEO settings pages, quick access to Genesis-related plugin settings pages (for those that are active), and links to useful tutorial pages for how to get the most out of Genesis.
+
+The plugin is built with theme and plugin developers in mind, as they can add support for their product with only a few lines of code, giving their users instant access to the right support board, a link to *their* website etc.
+
 * Adds support for menu item positioning, so custom entries can be added anywhere, and not just as the final items.
-* Adds *opens in a new window* non-image indicator for modern browsers.
 * Easy addition of Support board links via single lines in theme `functions.php`.
+
+This plugin is conceptual fork of the Genesis Admin Bar Addition plugin, re-written from scratch, adding new features.
 
 == Installation ==
 
@@ -31,23 +35,26 @@ Yes - there is an action hook to do this. See the *Add Custom Items* section.
 
 = How do I add a link to a certain support board? =
 
-The plugin currently recognises all of the child theme support boards, Genesis, the translations board, the general plugins board and the GenesisConnect board.
+The plugin currently recognises all of the child theme support boards, <a href="http://genesis-theme-framework.com/">Genesis</a>, the translations board, the general plugins board and the GenesisConnect board.
 See the *Add Support Boards* section for an example of how to add these to the Support menu.
 
 You can also add a reference to another board via the `gabp_support_boards` filter.
 
 = What Settings links are supported? =
+The following theme and plugins, when active, have a link to their settings page added to the Settings submenu:
 
-* Design Settings (for Prose Theme)
-* GenesisConnect
-* Genesis Simple Breadcrumbs
-* Genesis Slider
-* Simple Edits
-* Simple Hooks
-* Simple Sidebars
-* Simple URLs
+* Design Settings (for [Prose Theme](http://gmj.to/prose))
+* [GenesisConnect](http://gmj.to/genesisconnect)
+* [Genesis Simple Breadcrumbs](http://wordpress.org/extend/plugins/genesis-simple-breadcrumbs/)
+* [Genesis Slider](http://www.studiopress.com/plugins/genesis-slider)
+* [Genesis Simple Edits](http://www.studiopress.com/plugins/simple-edits)
+* [Genesis Simple Hooks](http://www.studiopress.com/plugins/simple-hooks)
+* [Genesis Simple Sidebars](http://www.studiopress.com/plugins/simple-sidebars)
+* [Simple URLs](http://www.studiopress.com/plugins/simple-urls)
 
 A plugin author can add support for their own settings page link. See the *Add Custom Items* section.
+
+Genesis Simple Menus and Genesis Tabs can't be supported as they have no individual settings pages.
 
 == Screenshots ==
 
@@ -58,6 +65,11 @@ A plugin author can add support for their own settings page link. See the *Add C
 5. Showing the StudioPress menu item removed, Support menu item moved position and new custom menu items added
 
 == Changelog ==
+
+= 1.2.5 =
+* Changed a few strings to use the plugin text domain to avoid conflicts.
+* Added support for Fashionista, Modern Blogger (both Marketplace) and Scribble themes.
+* Improved readme descriptions.
 
 = 1.2.4 =
 * Added support for Nitrous and Legacy (Marketplace) themes.
@@ -112,6 +124,9 @@ A plugin author can add support for their own settings page link. See the *Add C
 * First public version.
 
 == Upgrade Notice ==
+
+= 1.2.5 =
+Minor changes - Improved strings for translations, add support for three themes, improved readme.
 
 = 1.2.4 =
 Minor changes - add support board for Nitrous and Legacy themes.
