@@ -2,8 +2,8 @@
 /**
  * Main plugin file. The plugin adds resources links related the Genesis Theme to the admin bar.
  *
- * @package GenesisAdminBarPlus
- * @author  Gary Jones
+ * @package     GenesisAdminBarPlus
+ * @author      Gary Jones
  *
  * Plugin Name: Genesis Admin Bar Plus
  * Version:     1.2.4
@@ -23,7 +23,7 @@
  * You can also put this define in your wp-config.php file, or even just add
  * gabp-debug as a querystring parameter to enable it.
  *
- * @since 1.1
+ * @since 1.1.0
  */
 //define ( 'GABP_DEBUG', true );
 
@@ -31,7 +31,7 @@
  * Main plugin class. Adds Genesis-related resource links to the admin bar
  * present in WordPress 3.1 and above.
  *
- * @since 1.0
+ * @since 1.0.0
  */
 class Genesis_Admin_Bar_Plus {
 
@@ -67,7 +67,7 @@ class Genesis_Admin_Bar_Plus {
 	/**
 	 * The translation gettext domain for the plugin.
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 *
 	 * @var string Translation domain
 	 */
@@ -76,7 +76,7 @@ class Genesis_Admin_Bar_Plus {
 	/**
 	 * Holds copy of instance, so other plugins can remove our hooks.
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 * @link  http://core.trac.wordpress.org/attachment/ticket/16149/query-standard-format-posts.php
 	 * @link  http://twitter.com/#!/markjaquith/status/66862769030438912
 	 *
@@ -87,7 +87,7 @@ class Genesis_Admin_Bar_Plus {
 	/**
 	 * Constructor.
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	function __construct() {
 
@@ -100,6 +100,11 @@ class Genesis_Admin_Bar_Plus {
 
 	}
 
+	/**
+	 * Plugin set up on init.
+	 *
+	 * @since 1.0.0
+	 */
 	function init() {
 
 		// Populate parent menu references
@@ -130,7 +135,7 @@ class Genesis_Admin_Bar_Plus {
 	 * other items, depending on what child theme and Genesis-related plugins
 	 * are active.
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	function set_default_menu_items() {
 
@@ -387,7 +392,7 @@ class Genesis_Admin_Bar_Plus {
 	 * Ensure that child item has a minimum position equal to that of its parent.
 	 * Recursive function. Private.
 	 *
-	 * @since  1.1
+	 * @since  1.1.0
 	 *
 	 * @param  string $id Menu item ID
 	 * @param  array $menu_items Menu item arguments
@@ -434,8 +439,7 @@ class Genesis_Admin_Bar_Plus {
 	/**
 	 * Helper function to sort the menu items by position. Private.
 	 *
-	 * @since 1.0
-	 * @todo  Try and find some way of sorting children after parent ID first
+	 * @since 1.0.0
 	 */
 	function _sort( $a, $b ) {
 
@@ -455,7 +459,7 @@ class Genesis_Admin_Bar_Plus {
 	 * The menu items are filterable via the 'genesis_admin_bar_plus_menu_items'
 	 * filter.
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 * @uses  Genesis_Admin_Bar_Plus::sort() Helper function for uasort()
 	 * @uses  Genesis_Admin_Bar_Plus_Menu::get_items() Return default menu items
 	 * @uses  validate_child_item_position() Pre-sort menu items
@@ -507,7 +511,7 @@ class Genesis_Admin_Bar_Plus {
 	 * The key must be lowercase, and use hyphen for spaces e.g.
 	 *   add_theme_support( 'gabp-support-pretty-young-thing' );
 	 *
-	 * @since  1.0
+	 * @since  1.0.0
 	 *
 	 * @return array Array of support boards.
 	 */
@@ -577,7 +581,7 @@ class Genesis_Admin_Bar_Plus {
 	 * Return single forum ID from array of support boards. If name not found,
 	 * returns false.
 	 *
-	 * @since  1.0
+	 * @since  1.0.0
 	 *
 	 * @param  string $name Lowercase, hyphen-spaced theme name, e.g. family-tree.
 	 * @return integer|boolean Support board ID, or false if board not found.
@@ -600,7 +604,7 @@ class Genesis_Admin_Bar_Plus {
 	 * semi-older browsers, but the effects here (adding a "new tab" indicator)
 	 * are non-critical.
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	function style() {
 
@@ -668,7 +672,7 @@ class Genesis_Admin_Bar_Plus {
 	 *
 	 * Can be activated by uncommenting the line near the top of this file.
 	 *
-	 * @since  1.1
+	 * @since  1.1.0
 	 *
 	 * @return boolean
 	 */
@@ -685,7 +689,7 @@ class Genesis_Admin_Bar_Plus {
 /**
  * Container for the menu items.
  *
- * @since 1.0
+ * @since 1.0.0
  */
 class Genesis_Admin_Bar_Plus_Menu {
 
@@ -699,7 +703,7 @@ class Genesis_Admin_Bar_Plus_Menu {
 	/**
 	 * Assign the menu item to the array using the ID as the key. Public.
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 *
 	 * @param string $id Menu item identifier
 	 * @param array $args Menu item arguments
@@ -713,7 +717,7 @@ class Genesis_Admin_Bar_Plus_Menu {
 	/**
 	 * Retrieve single menu item.
 	 *
-	 * @since  1.1
+	 * @since  1.1.0
 	 *
 	 * @param  string $id Menu item identifier
 	 * @return array Menu item arguments
@@ -729,7 +733,7 @@ class Genesis_Admin_Bar_Plus_Menu {
 	/**
 	 * Edit the menu item arguments, merging with the existing values. Public.
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 *
 	 * @param string $id Menu item identifier
 	 * @param array $args Menu item arguments
@@ -743,7 +747,7 @@ class Genesis_Admin_Bar_Plus_Menu {
 	/**
 	 * Remove the menu item from the array using the ID as the key. Public.
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 *
 	 * @param string $id Menu item identifier
 	 */
@@ -757,7 +761,7 @@ class Genesis_Admin_Bar_Plus_Menu {
 	/**
 	 * Return the array of menu items. Public.
 	 *
-	 * @since  1.0
+	 * @since  1.0.0
 	 *
 	 * @return array All menu items
 	 */
