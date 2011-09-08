@@ -4,7 +4,7 @@ Donate link: http://code.garyjones.co.uk/donate/
 Tags: admin bar, genesis
 Requires at least: 3.1
 Tested up to: 3.2.1
-Stable tag: 1.2.4
+Stable tag: 1.2.5
 
 Adds resource links related to the Genesis Framework to the admin bar.
 
@@ -67,8 +67,9 @@ Genesis Simple Menus and Genesis Tabs can't be supported as they have no individ
 == Changelog ==
 
 = 1.2.5 =
-* Changed a few strings to use the plugin text domain to avoid conflicts.
 * Added support for Fashionista, Modern Blogger (both Marketplace) and Scribble themes.
+* Added updated German language files back in with the plugin.
+* Improved a few strings to use the plugin text domain to avoid conflicts.
 * Improved readme descriptions.
 
 = 1.2.4 =
